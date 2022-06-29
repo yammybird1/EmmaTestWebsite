@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <body>
 
-<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+<canvas id="myChart" style="width:100%;max-width:1000px"></canvas>
 
-<input type="text" id="a" value="Enter value for 'a'">
-<input type="text" id="b" value="Enter value for 'b'">
-<input type="text" id="c" value="Enter value for 'c'">
+<div id="heading">
+  <p>Place a value for each parameter</p>
+</div>
 
-<p>Place a value for each parameter</p>
+<div id="input">
+  <input type="text" id="a" value="Enter value for 'a'">
+  <input type="text" id="b" value="Enter value for 'b'">
+  <input type="text" id="c" value="Enter value for 'c'">
+</div>
 
-<button onclick="generateData(-5, 5, 0.5, 1)">Submit</button>
+<div id="submit"> 
+  <button onclick="generateData(-5, 5, 0.5, 1)">Submit</button>
+</div>
 
 <script>
 
@@ -44,7 +53,7 @@ for (let x = i1; x <= i2; x += step) {
     datasets: [{
       fill: false,
       pointRadius: 2,
-      borderColor: "rgba(0,0,255,0.5)",
+      borderColor: "darkorchid",
       data: yValues
     }]
   },    
@@ -52,15 +61,12 @@ for (let x = i1; x <= i2; x += step) {
     legend: {display: false},
     title: {
       display: true,
-      text: "Parabola",
+      text: "Explore the Parabola",
       fontSize: 16
     }
+    
   }
 });
-
-
-  //a = document.getElementById("a").value;
-  //document.getElementById("demo").innerHTML = i1;
 }
 
 </script>
