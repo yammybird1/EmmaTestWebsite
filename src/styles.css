@@ -6,7 +6,7 @@ html, body {
   margin: 0;
   border: 0;
   padding: 0;
-  background-color: #fff;
+  background-color: lavenderblush;
 }
 
 main {
@@ -18,4 +18,36 @@ main {
 main > h1 {
   text-align: center;
   font-size: 3.5em;
+}
+
+canvas {
+  margin: 0 auto;
+  padding-bottom: 0.2%;
+}
+
+button {
+  border: 3px solid green;
+}
+
+input {
+  border: 3px solid green;
+}
+
+p {
+  color: rgb(69, 69, 69);
+}
+
+#heading {
+  padding-top: 15px;
+  padding-left: 19.5%;
+}
+
+#input {
+  padding-top: 15px;
+  padding-left: 19.5%;
+}
+
+#submit {
+  padding-top: 15px;
+  padding-left: 19.5%;
 }
