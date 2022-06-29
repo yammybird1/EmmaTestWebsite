@@ -5,31 +5,38 @@
 
 <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
-<input type="text" id="a" value=" ">
+<input type="text" id="a" value="Enter value for 'a'">
+<input type="text" id="b" value="Enter value for 'b'">
+<input type="text" id="c" value="Enter value for 'c'">
 
-<p>Place a value for "a"</p>
+<p>Place a value for each parameter</p>
 
-<button onclick="generateData(-5, 5, 0.5)">Submit</button>
-
-
-<p id="demo"></p>
-
+<button onclick="generateData(-5, 5, 0.5, 1)">Submit</button>
 
 <script>
 
-generateData(-5, 5, 0.5);
+generateData(-5, 5, 0.5, 0);
 
-
-function generateData(i1, i2, step = 1) {
+function generateData(i1, i2, step = 1, mode) {
   var xValues = [];
   var yValues = [];
 
-  for (let x = i1; x <= i2; x += step) {
-    value = Math.pow(x,2) + 5;
-    yValues.push(value);
-    xValues.push(x);
+  if(mode == 0){
+    var a = 1;
+    var b = 2;
+    var c = 3;
+  } else if (mode == 1){
+    a = parseInt(document.getElementById("a").value);
+    b = parseInt(document.getElementById("b").value);
+    c = parseInt(document.getElementById("c").value);
   }
-  
+
+for (let x = i1; x <= i2; x += step) {
+      value = a*Math.pow(x,2) + b*x + c;
+      yValues.push(value);
+      xValues.push(x);
+}
+
   new Chart("myChart", {
   type: "line",
   data: {
