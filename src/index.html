@@ -1,17 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
-</head>
-
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
-</body>
 
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+<input type="text" id="a" value=" ">
+
+<p>Place a value for "a"</p>
+
+<button onclick="generateData(-5, 5, 0.5)">Submit</button>
+
+
+<p id="demo"></p>
+
+
+<script>
+
+generateData(-5, 5, 0.5);
+
+
+function generateData(i1, i2, step = 1) {
+  var xValues = [];
+  var yValues = [];
+
+  for (let x = i1; x <= i2; x += step) {
+    value = Math.pow(x,2) + 5;
+    yValues.push(value);
+    xValues.push(x);
+  }
+  
+  new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      fill: false,
+      pointRadius: 2,
+      borderColor: "rgba(0,0,255,0.5)",
+      data: yValues
+    }]
+  },    
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Parabola",
+      fontSize: 16
+    }
+  }
+});
+
+
+  //a = document.getElementById("a").value;
+  //document.getElementById("demo").innerHTML = i1;
+}
+
+</script>
+
+</body>
 </html>
